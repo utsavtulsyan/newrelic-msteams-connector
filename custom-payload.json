@@ -1,0 +1,67 @@
+{
+  "@context": "http://schema.org/extensions",
+  "@type": "MessageCard",
+  "title": "New Relic Alert: $CONDITION_NAME on $POLICY_NAME",
+  "text": "$EVENT_DETAILS",
+  "potentialAction": [
+    {
+      "@type": "OpenUri",
+      "name": "View Incident",
+      "targets": [
+        { "os": "default", "uri": "$INCIDENT_URL" }
+      ]
+    },
+    {
+      "@type": "OpenUri",
+      "name": "Acknowledge Incident",
+      "targets": [
+        { "os": "default", "uri": "$INCIDENT_ACKNOWLEDGE_URL" }
+      ]
+    },
+    {
+      "@type": "OpenUri",
+      "name": "View Policy",
+      "targets": [
+        { "os": "default", "uri": "$POLICY_URL" }
+      ]
+    }
+  ],
+  "sections": [
+        {
+            "images": [
+                {
+                    "image": "$VIOLATION_CHART_URL"
+                }
+            ]
+        },
+        {
+            "markdown": true,
+            "facts": [
+                {
+                    "name": "Open Violations Count warning",
+                    "value": "$OPEN_VIOLATIONS_COUNT_WARNING"
+                },
+                {
+                    "name": "Incident ID",
+                    "value": "$INCIDENT_ID"
+                },
+                {
+                    "name": "Current Status",
+                    "value": "$EVENT_STATE"
+                },
+                {
+                    "name": "Event Type",
+                    "value": "$EVENT_TYPE"
+                },
+                {
+                    "name": "Severity",
+                    "value": "$SEVERITY"
+                },
+                {
+                    "name": "Duration",
+                    "value": "$DURATION"
+                }
+            ]
+        }
+    ]
+}
